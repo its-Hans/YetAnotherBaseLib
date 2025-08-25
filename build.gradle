@@ -1,0 +1,13 @@
+plugins {
+	id 'org.jetbrains.kotlin.jvm' version "${kotlin_version}"
+}
+
+version project_version
+group project_group
+
+jar {
+	inputs.property('name', name)
+	from('LICENSE') {
+		rename { "${it}_${inputs.properties.name}" }
+	}
+}
